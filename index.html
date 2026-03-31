@@ -169,7 +169,7 @@
       <div class="resumen-grid">
         <div class="stat-box"><div class="stat-num" id="stat-sorteos">—</div><div class="stat-label">Sorteos jugados</div></div>
         <div class="stat-box"><div class="stat-num" id="stat-boletas">—</div><div class="stat-label">Boletas totales</div></div>
-        <div class="stat-box"><div class="stat-num" id="stat-costo">—</div><div class="stat-label">Costo total</div></div>
+        <div class="stat-box"><div class="stat-num" id="stat-costo">—</div><div class="stat-label">Tu parte (1/3)</div></div>
         <div class="stat-box"><div class="stat-num" id="stat-aciertos">—</div><div class="stat-label">Mejor acierto</div></div>
       </div>
     </div>
@@ -340,9 +340,13 @@ function actualizarResumen() {
     });
   });
 
+  const integrantes = data.integrantes || 3;
+  const costoTotal = n * boletas_x * precio;
+  const costoPorPersona = Math.round(costoTotal / integrantes);
+
   document.getElementById('stat-sorteos').textContent = n;
   document.getElementById('stat-boletas').textContent = n * boletas_x;
-  document.getElementById('stat-costo').textContent = '$' + (n * boletas_x * precio).toLocaleString('es-AR');
+  document.getElementById('stat-costo').textContent = '$' + costoPorPersona.toLocaleString('es-AR');
   document.getElementById('stat-aciertos').textContent = mejor || '—';
 }
 
