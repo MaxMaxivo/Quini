@@ -41,13 +41,24 @@ def concurso_para_fecha(target):
 def build_url(num, d):
     return f"https://www.quini-6-resultados.com.ar/quini6/sorteo-{num}-del-dia-{d.day:02d}-{d.month:02d}-{d.year}.htm"
 
-def fetch(url):
+def fetch_html(url):
     try:
-        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-        with urllib.request.urlopen(req, timeout=15) as r:
-            return r.read().decode("utf-8", errors="ignore")
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "es-AR,es;q=0.9",
+        })
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            raw = resp.read()
+            # Intentar descomprimir gzip si aplica
+            try:
+                import gzip
+                raw = gzip.decompress(raw)
+            except Exception:
+                pass
+            return raw.decode("utf-8", errors="ignore")
     except Exception as e:
-        print(f"    ✗ Error: {e}")
+        print(f"  ERROR: {e}")
         return None
 
 def parse_seccion(html, titulo):
