@@ -39,7 +39,7 @@ def concurso_para_fecha(target):
     return REF_NUM + sorteos_entre(REF_DATE, target) - 1
 
 def build_url(num, d):
-    return f"https://www.quini-6-resultados.com.ar/quini6/sorteo-{num}-del-dia-{d.day}-{d.month}-{d.year}.htm"
+    return f"https://www.quini-6-resultados.com.ar/quini6/sorteo-{num}-del-dia-{d.day:02d}-{d.month:02d}-{d.year}.html"
 
 def fetch(url):
     try:
