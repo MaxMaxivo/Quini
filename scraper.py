@@ -135,7 +135,21 @@ def main():
             data["sorteos"].append(resultado)
             existentes.add(num)
             nuevos += 1
-
+def fetch_html(url: str) -> str | None:
+    try:
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "es-AR,es;q=0.9",
+            "Accept-Encoding": "gzip, deflate",
+            "Connection": "keep-alive",
+        })
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            return resp.read().decode("utf-8", errors="ignore")
+    except Exception as e:
+        print(f"  ERROR fetching {url}: {e}")
+        return None
+        
     # Ordenar por fecha descendente
     data["sorteos"].sort(key=lambda s: s["fecha"], reverse=True)
 
