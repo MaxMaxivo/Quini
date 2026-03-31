@@ -42,6 +42,7 @@ def build_url(num, d):
     return f"https://www.quini-6-resultados.com.ar/quini6/sorteo-{num}-del-dia-{d.day:02d}-{d.month:02d}-{d.year}.htm"
 
 def fetch_html(url):
+    print(f"  HTML primeros 500 chars: {repr(html[:500]) if html else 'None'}")
     try:
         req = urllib.request.Request(url, headers={
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
