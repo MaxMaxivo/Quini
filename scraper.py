@@ -43,7 +43,7 @@ def build_url(sorteo_num: int, sorteo_date: date) -> str:
     dd  = sorteo_date.day
     mm  = sorteo_date.month
     yyyy = sorteo_date.year
-    return f"https://www.quini-6-resultados.com.ar/quini6/sorteo-{sorteo_num}-del-dia-{dd}-{mm}-{yyyy}.html"
+  return f"https://www.quini-6-resultados.com.ar/quini6/sorteo-{sorteo_num}-del-dia-{sorteo_date.day:02d}-{sorteo_date.month:02d}-{sorteo_date.year}.html"
 
 def fetch_html(url: str) -> str | None:
     try:
