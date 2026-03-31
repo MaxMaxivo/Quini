@@ -97,6 +97,8 @@
 
   .aciertos-badge { margin-left: auto; font-family: 'Barlow Condensed', sans-serif; font-size: 13px; letter-spacing: 1px; padding: 5px 13px; border-radius: 20px; background: rgba(61,153,96,.15); border: 1px solid rgba(61,153,96,.3); color: var(--verde-claro); white-space: nowrap; }
   .aciertos-badge.cero { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.08); color: rgba(255,255,255,.3); }
+  .aciertos-badge.ganador { background: rgba(201,168,76,.25); border-color: var(--dorado); color: var(--dorado-claro); font-size: 14px; }
+  .modalidad-row.pozo-extra { border-left-color: var(--dorado); background: rgba(201,168,76,.06); }
 
   /* ── RESUMEN ── */
   .resumen-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 14px; }
@@ -303,6 +305,25 @@ function mostrarSorteo(idx) {
       ${renderModalidad('Segunda del Quini', s.segunda, 'segunda', misNums)}
       ${renderModalidad('Revancha', s.revancha, 'revancha', misNums)}
       ${renderModalidad('Siempre Sale', s.siempre_sale, 'siempre', misNums)}
+      ${renderPozoExtra(s, misNums)}
+    </div>`;
+}
+
+function renderPozoExtra(s, misNums) {
+  const trad  = s.tradicional || [];
+  const seg   = s.segunda     || [];
+  const rev   = s.revancha    || [];
+  // Union sin repetidos de los 3 primeros sorteos
+  const union = [...new Set([...trad, ...seg, ...rev])];
+  const aciertos = union.filter(n => misNums.includes(n)).length;
+  const badgeCls = aciertos === 6 ? 'ganador' : aciertos === 0 ? 'cero' : '';
+  const texto = aciertos === 6 ? '🏆 ¡6 aciertos! POZO EXTRA' : `${aciertos} acierto${aciertos !== 1 ? 's' : ''}`;
+  return `
+    <div class="modalidad-row pozo-extra">
+      <div class="modalidad-nombre">Pozo Extra (Trad + Segunda + Revancha)</div>
+      <div class="numeros-fila">
+        <span class="aciertos-badge ${badgeCls}" style="margin-left:0">${texto}</span>
+      </div>
     </div>`;
 }
 
