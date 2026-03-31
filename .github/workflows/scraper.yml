@@ -1,0 +1,36 @@
+
+name: Actualizar resultados Quini 6
+
+on:
+  schedule:
+    # Miércoles y domingos a las 22:00 hora Argentina (UTC-3 → 01:00 UTC del día siguiente)
+    - cron: '0 1 * * 4'   # Jueves 01:00 UTC = Miércoles 22:00 ARG
+    - cron: '0 1 * * 1'   # Lunes 01:00 UTC = Domingo 22:00 ARG
+  workflow_dispatch:       # También permite correrlo a mano desde GitHub
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Correr scraper
+        run: python scraper.py
+
+      - name: Commit y push de data.json
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          git diff --staged --quiet || git commit -m "chore: actualizar resultados Quini 6 $(date +'%d/%m/%Y')"
+          git push
