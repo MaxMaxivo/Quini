@@ -1,52 +1,6 @@
 {
-  "mis_numeros": [
-    1,
-    8,
-    17,
-    21,
-    31,
-    33
-  ],
+  "mis_numeros": [1, 8, 17, 21, 31, 33],
   "precio_boleta": 3000,
   "boletas_por_sorteo": 3,
-  "sorteos": [
-    {
-      "concurso": 3360,
-      "fecha": "2026-03-29",
-      "dia": "domingo",
-      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3360-del-dia-29-3-2026.htm",
-      "tradicional": [
-        1,
-        9,
-        15,
-        18,
-        19,
-        38
-      ],
-      "segunda": [
-        0,
-        5,
-        9,
-        15,
-        18,
-        29
-      ],
-      "revancha": [
-        6,
-        8,
-        15,
-        24,
-        36,
-        42
-      ],
-      "siempre_sale": [
-        1,
-        16,
-        24,
-        36,
-        42,
-        45
-      ]
-    }
-  ]
+  "sorteos": []
 }
