@@ -1,5 +1,12 @@
 {
-  "mis_numeros": [1, 8, 17, 21, 31, 33],
+  "mis_numeros": [
+    1,
+    8,
+    17,
+    21,
+    31,
+    33
+  ],
   "precio_boleta": 3000,
   "boletas_por_sorteo": 3,
   "sorteos": []
