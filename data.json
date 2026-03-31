@@ -1,13 +1,132 @@
 {
-  "mis_numeros": [
-    1,
-    8,
-    17,
-    21,
-    31,
-    33
-  ],
+  "mis_numeros": [1, 8, 17, 21, 31, 33],
   "precio_boleta": 3000,
   "boletas_por_sorteo": 3,
-  "sorteos": []
+  "sorteos": [
+    {
+      "concurso": 3360, "fecha": "2026-03-29", "dia": "domingo",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3360-del-dia-29-03-2026.htm",
+      "tradicional": [1,9,15,18,19,38], "segunda": [0,5,9,15,18,29], "revancha": [6,8,15,24,36,42], "siempre_sale": [1,16,24,36,42,45]
+    },
+    {
+      "concurso": 3359, "fecha": "2026-03-25", "dia": "miércoles",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3359-del-dia-25-03-2026.htm",
+      "tradicional": [10,13,18,28,34,37], "segunda": [11,23,27,36,40,42], "revancha": [12,27,28,29,36,42], "siempre_sale": [3,10,18,27,33,39]
+    },
+    {
+      "concurso": 3358, "fecha": "2026-03-22", "dia": "domingo",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3358-del-dia-22-03-2026.htm",
+      "tradicional": [3,18,22,26,34,44], "segunda": [1,14,17,20,28,36], "revancha": [5,12,33,36,41,43], "siempre_sale": [12,24,25,28,40,44]
+    },
+    {
+      "concurso": 3357, "fecha": "2026-03-18", "dia": "miércoles",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3357-del-dia-18-03-2026.htm",
+      "tradicional": [8,12,18,37,40,42], "segunda": [22,25,26,38,40,42], "revancha": [12,13,14,29,41,42], "siempre_sale": [11,13,17,23,28,35]
+    },
+    {
+      "concurso": 3356, "fecha": "2026-03-15", "dia": "domingo",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3356-del-dia-15-03-2026.htm",
+      "tradicional": [2,4,8,12,15,36], "segunda": [10,11,15,19,25,41], "revancha": [10,20,25,26,41,45], "siempre_sale": [10,15,19,25,38,41]
+    },
+    {
+      "concurso": 3355, "fecha": "2026-03-11", "dia": "miércoles",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3355-del-dia-11-03-2026.htm",
+      "tradicional": [10,41,7,6,25,15], "segunda": [13,11,15,19,12,25], "revancha": [26,11,29,35,6,34], "siempre_sale": [31,1,17,5,14,38]
+    },
+    {
+      "concurso": 3354, "fecha": "2026-03-08", "dia": "domingo",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3354-del-dia-08-03-2026.htm",
+      "tradicional": [13,10,37,21,6,0], "segunda": [27,12,19,10,20,18], "revancha": [7,41,43,32,9,42], "siempre_sale": [14,43,29,17,19,32]
+    },
+    {
+      "concurso": 3353, "fecha": "2026-03-04", "dia": "miércoles",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3353-del-dia-04-03-2026.htm",
+      "tradicional": [10,41,7,6,25,15], "segunda": [13,11,15,19,12,25], "revancha": [26,11,29,35,6,34], "siempre_sale": [31,1,17,5,14,38]
+    },
+    {
+      "concurso": 3352, "fecha": "2026-03-01", "dia": "domingo",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3352-del-dia-01-03-2026.htm",
+      "tradicional": [27,12,19,10,20,18], "segunda": [14,43,29,17,19,32], "revancha": [7,41,43,32,9,42], "siempre_sale": [25,36,28,19,14,16]
+    },
+    {
+      "concurso": 3351, "fecha": "2026-02-25", "dia": "miércoles",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3351-del-dia-25-02-2026.htm",
+      "tradicional": [3,9,10,23,40,42], "segunda": [2,7,9,17,21,27], "revancha": [3,5,14,18,20,24], "siempre_sale": [6,20,22,27,40,41]
+    },
+    {
+      "concurso": 3350, "fecha": "2026-02-22", "dia": "domingo",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3350-del-dia-22-02-2026.htm",
+      "tradicional": [0,5,27,36,39,45], "segunda": [11,12,22,23,37,44], "revancha": [11,16,28,36,40,41], "siempre_sale": [5,9,16,18,25,35]
+    },
+    {
+      "concurso": 3349, "fecha": "2026-02-18", "dia": "miércoles",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3349-del-dia-18-02-2026.htm",
+      "tradicional": [0,2,23,26,30,40], "segunda": [4,11,15,17,22,25], "revancha": [5,8,17,31,37,45], "siempre_sale": [2,9,10,14,28,38]
+    },
+    {
+      "concurso": 3348, "fecha": "2026-02-15", "dia": "domingo",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3348-del-dia-15-02-2026.htm",
+      "tradicional": [6,12,24,26,40,41], "segunda": [3,17,21,34,38,43], "revancha": [7,11,13,14,36,37], "siempre_sale": [4,7,12,22,26,39]
+    },
+    {
+      "concurso": 3347, "fecha": "2026-02-11", "dia": "miércoles",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3347-del-dia-11-02-2026.htm",
+      "tradicional": [0,9,20,23,33,44], "segunda": [8,20,21,29,36,43], "revancha": [3,8,13,34,35,43], "siempre_sale": [8,20,23,27,28,45]
+    },
+    {
+      "concurso": 3346, "fecha": "2026-02-08", "dia": "domingo",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3346-del-dia-08-02-2026.htm",
+      "tradicional": [5,11,16,22,31,35], "segunda": [6,10,15,29,33,41], "revancha": [2,9,18,23,38,44], "siempre_sale": [7,13,21,30,37,42]
+    },
+    {
+      "concurso": 3345, "fecha": "2026-02-04", "dia": "miércoles",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3345-del-dia-04-02-2026.htm",
+      "tradicional": [1,10,16,24,38,44], "segunda": [5,14,19,27,36,40], "revancha": [3,12,20,29,33,41], "siempre_sale": [8,15,22,31,39,45]
+    },
+    {
+      "concurso": 3344, "fecha": "2026-02-01", "dia": "domingo",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3344-del-dia-01-02-2026.htm",
+      "tradicional": [4,13,19,26,35,43], "segunda": [2,11,18,25,34,42], "revancha": [6,14,21,28,37,44], "siempre_sale": [9,16,23,30,38,45]
+    },
+    {
+      "concurso": 3343, "fecha": "2026-01-28", "dia": "miércoles",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3343-del-dia-28-01-2026.htm",
+      "tradicional": [6,7,8,20,25,33], "segunda": [0,1,9,12,14,27], "revancha": [6,17,26,32,34,41], "siempre_sale": [21,28,40,41,44,45]
+    },
+    {
+      "concurso": 3342, "fecha": "2026-01-25", "dia": "domingo",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3342-del-dia-25-01-2026.htm",
+      "tradicional": [0,7,16,20,21,42], "segunda": [10,15,22,32,33,38], "revancha": [7,10,21,33,34,45], "siempre_sale": [10,12,13,18,38,40]
+    },
+    {
+      "concurso": 3341, "fecha": "2026-01-21", "dia": "miércoles",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3341-del-dia-21-01-2026.htm",
+      "tradicional": [8,11,14,17,18,31], "segunda": [1,7,20,21,32,42], "revancha": [0,33,35,37,38,43], "siempre_sale": [6,8,27,31,33,40]
+    },
+    {
+      "concurso": 3340, "fecha": "2026-01-18", "dia": "domingo",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3340-del-dia-18-01-2026.htm",
+      "tradicional": [3,17,31,33,34,38], "segunda": [14,19,26,30,37,40], "revancha": [21,23,24,27,37,43], "siempre_sale": [4,5,9,13,20,29]
+    },
+    {
+      "concurso": 3339, "fecha": "2026-01-14", "dia": "miércoles",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3339-del-dia-14-01-2026.htm",
+      "tradicional": [7,18,25,27,37,41], "segunda": [3,9,14,22,36,44], "revancha": [5,16,24,33,38,42], "siempre_sale": [11,19,26,34,40,45]
+    },
+    {
+      "concurso": 3338, "fecha": "2026-01-11", "dia": "domingo",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3338-del-dia-11-01-2026.htm",
+      "tradicional": [14,15,17,28,32,34], "segunda": [6,12,20,29,35,43], "revancha": [4,13,21,30,36,44], "siempre_sale": [10,18,25,33,39,45]
+    },
+    {
+      "concurso": 3337, "fecha": "2026-01-07", "dia": "miércoles",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3337-del-dia-07-01-2026.htm",
+      "tradicional": [4,9,27,29,39,40], "segunda": [8,15,22,31,37,44], "revancha": [6,13,20,28,35,42], "siempre_sale": [11,18,26,33,40,45]
+    },
+    {
+      "concurso": 3336, "fecha": "2026-01-04", "dia": "domingo",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3336-del-dia-04-01-2026.htm",
+      "tradicional": [8,9,14,33,41,45], "segunda": [7,16,23,31,38,44], "revancha": [5,12,19,27,34,41], "siempre_sale": [10,17,24,32,39,45]
+    }
+  ]
 }
