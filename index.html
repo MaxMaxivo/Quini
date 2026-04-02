@@ -402,6 +402,7 @@ function seleccionarMes(mes) {
   mostrarSorteo(sorteoActivo);
   actualizarResumen();
   renderPagos(mes);
+  renderTickets();
 }
 
 // ── SORTEOS NAV (izquierda=antiguo, derecha=reciente) ──
@@ -564,11 +565,19 @@ document.getElementById('comp-input').addEventListener('change', function(e) {
   this.value = '';
 });
 
-// ── TICKETS ──
-let tickets = [];
-try { tickets = JSON.parse(localStorage.getItem('mareatickets') || '[]'); } catch(e) {}
+// ── TICKETS (por mes) ──
+function ticketsKey(mes) { return 'mareatickets-' + mes; }
+
+function getTickets() {
+  try { return JSON.parse(localStorage.getItem(ticketsKey(mesActivo)) || '[]'); } catch(e) { return []; }
+}
+
+function saveTickets(arr) {
+  try { localStorage.setItem(ticketsKey(mesActivo), JSON.stringify(arr)); } catch(e) {}
+}
 
 function renderTickets() {
+  const tickets = getTickets();
   const grid = document.getElementById('tickets-grid');
   grid.innerHTML = '';
   tickets.forEach((src,i) => {
@@ -585,17 +594,19 @@ function renderTickets() {
 }
 
 function removeTicket(i) {
+  const tickets = getTickets();
   tickets.splice(i,1);
-  try { localStorage.setItem('mareatickets', JSON.stringify(tickets)); } catch(e) {}
+  saveTickets(tickets);
   renderTickets();
 }
 
 document.getElementById('file-input').addEventListener('change', function(e) {
+  const tickets = getTickets();
   Array.from(e.target.files).forEach(file => {
     const reader = new FileReader();
     reader.onload = ev => {
       tickets.push(ev.target.result);
-      try { localStorage.setItem('mareatickets', JSON.stringify(tickets)); } catch(e) {}
+      saveTickets(tickets);
       renderTickets();
     };
     reader.readAsDataURL(file);
