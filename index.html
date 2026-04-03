@@ -108,9 +108,11 @@ main { position:relative; z-index:2; max-width:960px; margin:0 auto; padding:40p
 .pago-persona:last-child { margin-bottom:0; }
 .pago-nombre { font-family:'Playfair Display',serif; font-style:italic; font-size:18px; color:var(--crema); margin-bottom:12px; }
 .pago-estado { display:flex; align-items:center; gap:10px; margin-bottom:12px; flex-wrap:wrap; }
-.pago-check-btn { display:flex; align-items:center; gap:8px; background:none; border:1px solid rgba(255,255,255,0.15); color:var(--crema); font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; padding:7px 14px; border-radius:2px; cursor:pointer; transition:all .2s; }
-.pago-check-btn:hover { border-color:var(--verde-acierto); color:var(--verde-acierto); }
+.pago-instruccion { font-family:'Crimson Pro',serif; font-style:italic; font-size:13px; color:var(--gris-humo); margin-bottom:10px; opacity:.7; }
+.pago-check-btn { display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.04); border:2px solid rgba(255,255,255,0.15); color:var(--crema); font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:2px; text-transform:uppercase; padding:12px 20px; border-radius:3px; cursor:pointer; transition:all .25s; width:100%; }
+.pago-check-btn:hover { border-color:var(--verde-acierto); color:var(--verde-acierto); background:rgba(61,153,102,0.08); }
 .pago-check-btn.pagado { background:rgba(61,153,102,0.15); border-color:var(--verde-acierto); color:var(--verde-acierto); }
+.check-icon { font-size:20px; line-height:1; }
 .pago-foto-btn { background:none; border:1px dashed rgba(200,96,26,0.25); color:var(--ambar); font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:2px; text-transform:uppercase; padding:7px 12px; border-radius:2px; cursor:pointer; transition:all .2s; }
 .pago-foto-btn:hover { border-color:var(--ambar); background:rgba(200,96,26,0.08); }
 .comprobante-preview { margin-top:10px; position:relative; display:inline-block; }
@@ -198,25 +200,17 @@ footer { position:relative; z-index:2; text-align:center; padding:32px 20px 60px
           <div class="pago-mes-label" id="pago-mes-label"></div>
           <div class="pago-persona">
             <div class="pago-nombre">Ale</div>
-            <div class="pago-estado">
-              <button class="pago-check-btn" id="check-ale" onclick="togglePago('ale')">Pagué</button>
-              <button class="pago-foto-btn" onclick="abrirComprobante('ale')">📎 Comprobante</button>
-            </div>
-            <div class="comprobante-preview" id="comp-ale" style="display:none">
-              <img id="comp-ale-img" src="" alt="Comprobante Ale">
-              <button class="comp-remove" onclick="borrarComprobante('ale')">✕</button>
-            </div>
+            <div class="pago-instruccion">Tocá el botón para confirmar tu pago del mes</div>
+            <button class="pago-check-btn" id="check-ale" onclick="togglePago('ale')">
+              <span class="check-icon">○</span> No pagué todavía
+            </button>
           </div>
           <div class="pago-persona">
             <div class="pago-nombre">Zamba</div>
-            <div class="pago-estado">
-              <button class="pago-check-btn" id="check-zamba" onclick="togglePago('zamba')">Pagué</button>
-              <button class="pago-foto-btn" onclick="abrirComprobante('zamba')">📎 Comprobante</button>
-            </div>
-            <div class="comprobante-preview" id="comp-zamba" style="display:none">
-              <img id="comp-zamba-img" src="" alt="Comprobante Zamba">
-              <button class="comp-remove" onclick="borrarComprobante('zamba')">✕</button>
-            </div>
+            <div class="pago-instruccion">Tocá el botón para confirmar tu pago del mes</div>
+            <button class="pago-check-btn" id="check-zamba" onclick="togglePago('zamba')">
+              <span class="check-icon">○</span> No pagué todavía
+            </button>
           </div>
         </div>
       </div>
@@ -226,13 +220,12 @@ footer { position:relative; z-index:2; text-align:center; padding:32px 20px 60px
 
 <footer>Tantos años haciendo la tarea con la espalda doblada, buscando entre la arena una moneda en la marea abandonada.</footer>
 <input type="file" id="file-input" accept="image/*" multiple style="display:none">
-<input type="file" id="comp-input" accept="image/*" style="display:none">
 
 <script>
 // ══════════════════════════════════════════════════
 // CONFIGURACIÓN — reemplazá TU_TOKEN_AQUI con tu token
 // ══════════════════════════════════════════════════
-const GH_TOKEN = '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';
+const GH_TOKEN = 'TU_TOKEN_AQUI';
 const GH_REPO  = 'MaxMaxivo/Quini';
 const GH_FILE  = 'estado.json';
 
@@ -270,7 +263,10 @@ function mostrarGuardando(msg = 'Guardando...') {
 async function guardarEstado() {
   mostrarGuardando('Guardando...');
   try {
-    const content = btoa(unescape(encodeURIComponent(JSON.stringify(estado, null, 2))));
+    const jsonStr = JSON.stringify(estado, null, 2);
+    const bytes = new TextEncoder().encode(jsonStr);
+    const binStr = Array.from(bytes).map(b => String.fromCharCode(b)).join('');
+    const content = btoa(binStr);
     const body = { message: 'chore: actualizar estado', content };
     if (estadoSHA) body.sha = estadoSHA;
     const r = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${GH_FILE}`, {
@@ -437,11 +433,14 @@ function renderPagos() {
     const pagado=em.pagos[p]===true;
     const btn=document.getElementById(`check-${p}`);
     btn.classList.toggle('pagado',pagado);
-    const comp=em.comprobantes[p];
-    const preview=document.getElementById(`comp-${p}`);
-    const img=document.getElementById(`comp-${p}-img`);
-    if(comp){img.src=comp;preview.style.display='inline-block';}
-    else{preview.style.display='none';img.src='';}
+    const icon=btn.querySelector('.check-icon');
+    const texto=btn.querySelector('span:last-child') || btn;
+    if(pagado){
+      icon.textContent='✓';
+      btn.innerHTML=`<span class="check-icon">✓</span> ¡Pagué!`;
+    } else {
+      btn.innerHTML=`<span class="check-icon">○</span> No pagué todavía`;
+    }
   });
 }
 function togglePago(persona) {
@@ -450,25 +449,7 @@ function togglePago(persona) {
   guardarEstado();
   renderPagos();
 }
-function abrirComprobante(persona) { compTarget=persona; document.getElementById('comp-input').click(); }
-function borrarComprobante(persona) {
-  delete getEstadoMes(mesActivo).comprobantes[persona];
-  guardarEstado();
-  renderPagos();
-}
-document.getElementById('comp-input').addEventListener('change',function(e){
-  const file=e.target.files[0];
-  if(!file||!compTarget) return;
-  const reader=new FileReader();
-  reader.onload=ev=>{
-    getEstadoMes(mesActivo).comprobantes[compTarget]=ev.target.result;
-    guardarEstado();
-    renderPagos();
-    compTarget=null;
-  };
-  reader.readAsDataURL(file);
-  this.value='';
-});
+
 
 // ── TICKETS ──
 function renderTickets() {

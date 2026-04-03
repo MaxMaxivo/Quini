@@ -12,6 +12,44 @@
   "integrantes": 3,
   "sorteos": [
     {
+      "concurso": 3361,
+      "fecha": "2026-04-01",
+      "dia": "miércoles",
+      "url": "https://www.quini-6-resultados.com.ar/quini6/sorteo-3361-del-dia-01-04-2026.htm",
+      "tradicional": [
+        8,
+        16,
+        20,
+        21,
+        30,
+        41
+      ],
+      "segunda": [
+        0,
+        6,
+        12,
+        24,
+        40,
+        43
+      ],
+      "revancha": [
+        3,
+        16,
+        35,
+        39,
+        44,
+        45
+      ],
+      "siempre_sale": [
+        3,
+        10,
+        12,
+        19,
+        32,
+        36
+      ]
+    },
+    {
       "concurso": 3360,
       "fecha": "2026-03-29",
       "dia": "domingo",
